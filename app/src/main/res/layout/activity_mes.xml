@@ -6,9 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/teal_700"
-    tools:context=".view.Activity3">
-
+    android:background="@color/white"
+    tools:context=".view.Mes_Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +16,7 @@
         tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar3"
+            android:id="@+id/toolbarMes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/azul"
@@ -34,9 +33,56 @@
 
         </FrameLayout>
 
-
     </LinearLayout>
 
+    <ScrollView
 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_marginTop="10dp"
+                android:layout_width="360dp"
+                android:layout_height="350dp"
+                android:layout_gravity="center"
+                style="@style/Widget.CalendarView.Custom"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="221dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/lista"
+                    style="@style/caixa"
+                    android:layout_width="350dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp">
+
+                </ListView>
+
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_CriarEvento"
+                style="@style/Button"
+                android:layout_marginBottom="10dp"
+                android:text="@string/criarEvento" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
 import dev.samuel.teste.agenda.R;
+import dev.samuel.teste.agenda.controller.EventoDAO;
 
 /*
 Autor: Juan Francisco Sánchez González
@@ -24,11 +27,8 @@ Clase: Actividad que contiene la barra de menú lateral (NavigationDrawer). Para
 se utiliza un ViewFlipper.
 */
 
-public class Activity3 extends AppCompatActivity {
-
-    // Constante Contenido Actividad
+public class Mes_Activity extends AppCompatActivity {
     private final static int CONT_ACTIVIDAD = 2;
-
     private DrawerLayout drawerLayout;
     private NavigationView nav;
     private ViewFlipper vf;
@@ -40,9 +40,34 @@ public class Activity3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = findViewById(R.id.button3);
+        toolbar();
 
-        toolbar = findViewById(R.id.toolbar3);
+        Button novoEvento = findViewById(R.id.bt_CriarEvento);
+
+        novoEvento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Mes_Activity.this,
+                        EventActivity.class));
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        EventoDAO dao = new EventoDAO();
+
+        ListView listaEventos = findViewById(R.id.lista);
+
+        listaEventos.setAdapter(new ArrayAdapter<>(
+                this, android.R.layout.simple_list_item_1, dao.todos()
+
+        ));
+    }
+
+    private void toolbar() {
+        toolbar = findViewById(R.id.toolbarMes);
 
         // Componente ViewFlipper
         vf = (ViewFlipper)findViewById(R.id.vf);
@@ -65,15 +90,15 @@ public class Activity3 extends AppCompatActivity {
                 Intent sendIntent;
                 if (item.getItemId() == R.id.nav_item_one) {
                     // Se inicia Actividad 1
-                    sendIntent = new Intent(Activity3.this, MainActivity.class);
+                    sendIntent = new Intent(Mes_Activity.this, UserActivity.class);
                     startActivity(sendIntent);
                 } else if (item.getItemId() == R.id.nav_item_two) {
                     // Se inicia Actividad 2
-                    sendIntent = new Intent(Activity3.this, EventActivity.class);
+                    sendIntent = new Intent(Mes_Activity.this, EventActivity.class);
                     startActivity(sendIntent);
                 } else if (item.getItemId() == R.id.nav_item_three) {
                     // Se inicia Actividad 3
-                    sendIntent = new Intent(Activity3.this, Activity3.class);
+                    sendIntent = new Intent(Mes_Activity.this, Mes_Activity.class);
                     startActivity(sendIntent);
                 }
 
@@ -82,6 +107,5 @@ public class Activity3 extends AppCompatActivity {
                 return true;
             }
         });
-
     }
 }

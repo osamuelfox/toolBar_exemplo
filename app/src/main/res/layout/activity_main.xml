@@ -17,40 +17,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
-        <include android:id="@+id/include1" layout="@layout/activity_1" />
-        <include android:id="@+id/include2" layout="@layout/activity_2" />
-        <include android:id="@+id/include3" layout="@layout/activity_3" />
+        <include android:id="@+id/include1" layout="@layout/activity_user" />
+        <include android:id="@+id/include2" layout="@layout/activity_event" />
+        <include android:id="@+id/include3" layout="@layout/activity_mes" />
 
     </ViewFlipper>
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical">-->
-
-<!--        <androidx.appcompat.widget.Toolbar-->
-<!--            android:id="@+id/toolbar"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@color/azul"-->
-<!--            android:elevation="3dp"-->
-<!--            app:title="toolBar"-->
-<!--            app:titleTextColor="@color/white">-->
-
-<!--        </androidx.appcompat.widget.Toolbar>-->
-
-<!--        <FrameLayout-->
-<!--            android:id="@+id/frameLayout"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
-
-<!--        </FrameLayout>-->
-
-
-<!--    </LinearLayout>-->
-
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
+        android:layout_marginTop="20dp"
         app:headerLayout="@layout/cabecera_nv"
         app:menu="@menu/menu_navegacion"
         android:layout_width="wrap_content"
