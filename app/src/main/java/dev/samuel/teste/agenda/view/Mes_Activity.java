@@ -69,7 +69,7 @@ public class Activity3 extends AppCompatActivity {
                     startActivity(sendIntent);
                 } else if (item.getItemId() == R.id.nav_item_two) {
                     // Se inicia Actividad 2
-                    sendIntent = new Intent(Activity3.this, Activity2.class);
+                    sendIntent = new Intent(Activity3.this, EventActivity.class);
                     startActivity(sendIntent);
                 } else if (item.getItemId() == R.id.nav_item_three) {
                     // Se inicia Actividad 3
@@ -83,14 +83,5 @@ public class Activity3 extends AppCompatActivity {
             }
         });
 
-        
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Activity3.this, MainActivity.class);
-                startActivity(intent);
-
-            }
-        });
     }
 }
