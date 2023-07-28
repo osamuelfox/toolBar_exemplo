@@ -3,6 +3,8 @@ package dev.samuel.teste.agenda.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
@@ -37,6 +39,8 @@ public class Activity3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button button = findViewById(R.id.button3);
 
         toolbar = findViewById(R.id.toolbar3);
 
@@ -76,6 +80,16 @@ public class Activity3 extends AppCompatActivity {
                 // Close the navigation drawer when an item is selected
                 drawerLayout.closeDrawers();
                 return true;
+            }
+        });
+
+        
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Activity3.this, MainActivity.class);
+                startActivity(intent);
+
             }
         });
     }
